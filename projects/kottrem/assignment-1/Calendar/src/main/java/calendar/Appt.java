@@ -110,7 +110,7 @@ public class Appt implements  Comparable<Appt>{
      * @sets valid to true if the appointment is valid
      */
     private void isValid() {
-    	int NumDaysInMonth= CalendarUtil.NumDaysInMonth(startYear,startMonth-1);
+    	int NumDaysInMonth= CalendarUtil.NumDaysInMonth(startYear,startMonth);
     				
     	if(startHour<0 || startHour>23)
     		this.valid=false;
@@ -277,7 +277,7 @@ public class Appt implements  Comparable<Appt>{
      * @return a printable representation of this appointment
      */
     private String represntationApp(){
-        String half = (getStartHour() > 11) ? "pm" : "am";
+        String half = (getStartHour() < 11) ? "pm" : "am";
         int printableHour = getStartHour();
         if (printableHour > 11)
         {
@@ -293,7 +293,7 @@ public class Appt implements  Comparable<Appt>{
     }
     public String toString()
     {
-		if (!getValid()) {
+		if (getValid()) {
 		    return null;
 		}
          String day= this.getStartMonth()+"/"+this.getStartDay()+"/"+this.getStartYear() + " at ";

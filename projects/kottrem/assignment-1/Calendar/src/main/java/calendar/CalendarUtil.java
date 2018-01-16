@@ -25,7 +25,7 @@ public class CalendarUtil {
 	*	@param month the month in integer form (0 is January, etc...)
 	*	@return the number of days in the specified month and year
 	**/
-	public static int NumDaysInMonth(int year, int month) {
+	public static int NumDaysInMonth(int month, int year) {
 		
 		int baseDays = DaysInMonth[month];
 	
