@@ -1,0 +1,11 @@
+Bug 1:
+Location: Appt.java; Line 120
+Description: Appointments can be created for non-existent days such as 0 or 42. The cause of this bug is the validation check for the day of the month is missing. The bug is located in the isValid() method in the Appt class.
+
+Bug 2:
+Location: CalendarUtil.java; Line 19
+Description: The extra day on leap years is added to March instead of February. It allows appointments to be created on March 32 (doesn’t exist), but does not let them be created for February 29 (does exist roughly every 4 years). This is a severe bug that affects the reliability of the core functionality of the program. The cause of this bug is February is defined as month 2, which makes it the third month since it starts from 0. February is used to determine which month to add the extra day to on leap year, but due to this bug, it adds the extra day to the wrong month.
+
+Bug 3:
+Location: CalendarUtil.java; Line 57
+Description: Leap years do not have an extra day added in February. Similar to Bug 2, this affects the reliability of this program by leaving a day out of the year. The cause of this bug is the IsLeapYear() method only returns true for years that are a multiple of 400. There is not a check for if the year is a multiple of 4.
